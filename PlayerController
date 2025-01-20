@@ -1,5 +1,4 @@
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     public float horizontal;
     public float vertical;
     public float speed = 1;
@@ -12,11 +11,11 @@
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         PlayerMovement();
     }
+    //WASD controls as well as a temporary if statements to rotate player left and right
     void PlayerMovement()
     {
         horizontal = Input.GetAxis("Horizontal");
@@ -29,10 +28,10 @@
         }
         if (Input.GetKey(KeyCode.E))
         {
-            transform.Rotate(Vector3.up *Time.deltaTime * rotateSpeed);
+            transform.Rotate(Vector3.up * Time.deltaTime * rotateSpeed);
         }
     }
-
+    //WIP player rotation to mouse location
     void MouseMovement()
     {
         mousePosX = Input.GetAxis("Mouse X");
