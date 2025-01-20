@@ -1,0 +1,36 @@
+using UnityEngine;
+
+public class CameraSwitch : MonoBehaviour
+{
+    public Camera Cam1;
+    public Camera Cam2;
+
+    private Camera ACam;
+    void Start()
+    {
+        SetActiveCamera(Cam1);
+    }
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            if (ACam == Cam1)
+            {
+                SetActiveCamera(Cam2);
+            }
+            else
+            {
+                SetActiveCamera(Cam1);
+            }
+        }
+    }
+    void SetActiveCamera(Camera cameraToActivate)
+    {
+        Cam1.gameObject.SetActive(false);
+        Cam2.gameObject.SetActive(false);
+
+        cameraToActivate.gameObject.SetActive(true);
+
+        ACam = cameraToActivate;
+    }
+}
