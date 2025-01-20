@@ -1,0 +1,41 @@
+{
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public float horizontal;
+    public float vertical;
+    public float speed = 1;
+    public float mousePosX;
+    public float mousePosY;
+    public float rotateSpeed = 5;
+
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        PlayerMovement();
+    }
+    void PlayerMovement()
+    {
+        horizontal = Input.GetAxis("Horizontal");
+        vertical = Input.GetAxis("Vertical");
+        transform.Translate(Vector3.forward * vertical * Time.deltaTime * speed);
+        transform.Translate(Vector3.right * horizontal * Time.deltaTime * speed);
+        if (Input.GetKey(KeyCode.Q))
+        {
+            transform.Rotate(Vector3.down * Time.deltaTime * rotateSpeed);
+        }
+        if (Input.GetKey(KeyCode.E))
+        {
+            transform.Rotate(Vector3.up *Time.deltaTime * rotateSpeed);
+        }
+    }
+
+    void MouseMovement()
+    {
+        mousePosX = Input.GetAxis("Mouse X");
+        mousePosY = Input.GetAxis("Mouse Y");
+    }
+}
